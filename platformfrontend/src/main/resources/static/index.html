@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript" src="/webjars/jquery/1.11.1/jquery.js"></script>
+</head>
+<body>
+    <div id="container" >
+
+    </div>
+
+
+    <script language="JavaScript">
+        $.ajax({
+            type: "get",
+            url: "/test/findAll",
+            dataType: 'json',
+            success: function(data) {
+                $.each(data,function (i,e) {
+                    //alert(JSON.stringify(e))
+                    $("#container").append(e.id + "     :     " + e.name).append("<br>")
+                });
+            },
+            error: function(response) {
+            }
+        });
+    </script>
+
+</body>
+</html>
